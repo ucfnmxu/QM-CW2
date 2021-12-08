@@ -70,7 +70,7 @@ symbox(~unemployment_rate,
        Regressiondata, 
        na.rm=T,
        powers=seq(-3,3,by=.5))
-```
+``` 
 ```{r}
 symbox(~crime_rate, 
        Regressiondata, 
