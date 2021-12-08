@@ -90,7 +90,6 @@ symbox(~homes_with_access_to_open_space_nature_and_percent_greenspace,
        powers=seq(-3,3,by=.5))
 ```
 
-
 ```{r}
 par(mfrow=c(2,2))   
 plot(model)
