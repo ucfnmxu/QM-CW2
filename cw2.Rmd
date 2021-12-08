@@ -1,0 +1,51 @@
+---
+title: "cw2"
+author: "Maidi"
+date: "08/12/2021"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(tmap)
+library(geojsonio)
+library(plotly)
+library(rgdal)
+library(broom)
+library(mapview)
+library(crosstalk)
+library(sf)
+library(sp)
+library(spdep)
+library(car)
+library(fs)
+library(janitor)
+```
+
+
+```{r}
+LonwardData <- read_csv(here::here("london-ward-well-being-data.csv"), 
+                               col_names = TRUE, 
+                               locale = locale(encoding = 'Latin1'))
+```
+
+
+```{r}
+position <- c(1:10)
+Regressiondata<- LonwardData%>%
+  clean_names()%>%
+dplyr::select(position)
+
+model <- lm(life_expectancy~ ., data = Regressiondata)
+
+#show the summary of those outputs
+tidy(model)
+```
+
+```{r}
+glance(model)
+```
+```{r}
+vif(model)
+```
+
