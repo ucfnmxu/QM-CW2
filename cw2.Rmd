@@ -105,59 +105,11 @@ glance(model_drop)
 summary(model_drop)
 ```
 
-```{r}
-model2 <- lm(life_expectancy~ . -childhood_obesity -crime_rate -gcse_point_scores -homes_with_access_to_open_space_nature_and_percent_greenspace -subjective_well_being_average_score -public_transport_accessibility, data = Regressiondata)
 
-tidy(model2)
-```
 
-```{r}
-glance(model2)
-```
 
-```{r}
-summary(model2)
-```
 
-```{r}
-vif(model2)
-```
 
-```{r}
-symbox(~homes_with_access_to_open_space_nature_and_percent_greenspace, 
-       Regressiondata, 
-       na.rm=T,
-       powers=seq(-3,3,by=.5))
-```
-```{r}
-par(mfrow=c(2,2))   
-plot(model2)
-```
-```{r}
-Regressiondata_drop<- Regressiondata[-c(367,613,67),]%>%
-  clean_names()
 
-```
-```{r}
-model3 <- lm(life_expectancy~ . -childhood_obesity -crime_rate -gcse_point_scores -homes_with_access_to_open_space_nature_and_percent_greenspace -subjective_well_being_average_score -public_transport_accessibility, data = Regressiondata_drop)
 
-tidy(model3)
-```
-```{r}
-summary(model3)
-```
-```{r}
-glance(model3)
-```
-
-```{r}
-par(mfrow=c(2,2))   
-plot(model3)
-```
-
-```{r}
-model2 <- lm(life_expectancy~ . -childhood_obesity -unauthorised_absence_in_all_schools_percent, data = Regressiondata)
-
-tidy(model2)
-```
 
