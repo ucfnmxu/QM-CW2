@@ -49,3 +49,7 @@ glance(model)
 vif(model)
 ```
 
+```{r}
+summary(model)
+```
+
